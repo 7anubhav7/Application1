@@ -10,7 +10,7 @@
 
     <EditText
         android:id="@+id/editTextText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="56dp"
@@ -36,7 +36,7 @@
     <Button
         android:id="@+id/button"
         android:textColor="@color/myspecial"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/my_btn_width"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="20dp"
