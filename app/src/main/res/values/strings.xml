@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Application1</string>
+    <string name="enter_name_hint">enter name</string>
+    <string name='hitn_enter_pin'>enter pin</string>
 </resources>
