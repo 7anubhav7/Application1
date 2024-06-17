@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:background="#cdaa"
     android:layout_height="match_parent"
-    tools:context="kotlinexs.MainActivity">
+    tools:context=".app.MainActivity">
 
     <EditText
         android:id="@+id/editTextText"

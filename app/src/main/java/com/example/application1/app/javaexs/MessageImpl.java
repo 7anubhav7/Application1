@@ -1,4 +1,4 @@
-package javaexs;
+package com.example.application1.app.javaexs;
 
 public class MessageImpl implements IMessage{
 
