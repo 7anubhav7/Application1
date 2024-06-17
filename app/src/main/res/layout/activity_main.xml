@@ -34,6 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextText" />
 
     <Button
+        android:onClick="myClickHandler"
         android:id="@+id/button"
         android:textColor="@color/myspecial"
         android:layout_width="@dimen/my_btn_width"
