@@ -15,29 +15,29 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.i(TAG, "activity created")
+        Log.i(TAG, "activity created -- memory allocation")
     }
 
     override fun onStart(){
         super.onStart()
-        Log.i(TAG,"activity started")
+        Log.i(TAG,"activity started -- initialize data")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.i(TAG,"activity resumed")
+        Log.i(TAG,"activity resumed -- restore state of the app")
 
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i(TAG,"activity paused")
+        Log.i(TAG,"activity paused -- store the app state")
 
     }
 
     override fun onStop() {
         super.onStop()
-        Log.i(TAG,"activity stopped")
+        Log.i(TAG,"activity stopped -- ")
 
     }
 
