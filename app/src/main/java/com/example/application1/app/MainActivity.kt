@@ -9,9 +9,42 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.application1.R
 
 class MainActivity : AppCompatActivity() {
+    var TAG= "MainActivity"
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Log.i(TAG, "activity created")
+    }
+
+    override fun onStart(){
+        super.onStart()
+        Log.i(TAG,"activity started")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG,"activity resumed")
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG,"activity paused")
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG,"activity stopped")
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG,"activity destroyed")
+
     }
 
     fun myClickHandler(view: View){
