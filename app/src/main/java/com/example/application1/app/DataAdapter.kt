@@ -1,7 +1,37 @@
 package com.example.application1.app
 
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.application1.R
 
-class DataAdapter: RecyclerView.Adapter<DataViewHolder>(){
-    class DataViewHolder
+class DataAdapter(var data: Array<String>): RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
+
+    var TAG=DataAdapter::class.java.simpleName
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
+        Log.i(TAG,"avinash bought a row plank -- gave it to prateek")
+        var rowPlank = LayoutInflater.from(parent.context).inflate(R.layout.row_plank,parent,false)
+        return DataViewHolder(rowPlank)
+    }
+
+    override fun getItemCount(): Int {
+        return data.size
+    }
+
+    override fun onBindViewHolder(prateekholder: DataViewHolder, position: Int) {
+        Log.i("DataAdapter","farhaan is writing"+data[position])
+        prateekholder.tvRowItem.setText(data[position])
+    }
+
+
+    class DataViewHolder(rowPlank: View) : RecyclerView.ViewHolder(rowPlank) {
+    init {
+        Log.i("DataAdapter","prateek is trying to find the textview on the row")
+    }
+        var tvRowItem = itemView.findViewById<TextView>(R.id.textView)
+
+    }
 }
