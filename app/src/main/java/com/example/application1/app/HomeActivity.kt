@@ -4,19 +4,19 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
+import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.application1.R
+import org.w3c.dom.Text
 
 class HomeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
-    var TAG=HomeActivity::class.java.simpleName
+    var TAG: String =HomeActivity::class.java.simpleName
 
     var data= arrayOf("india","english","android","computer")
 
@@ -54,4 +54,13 @@ class HomeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     override fun onNothingSelected(parent: AdapterView<*>?) {
         TODO("Not yet implemented")
     }
+
+    fun getShowText(view: View) {
+        var uiEt:EditText = findViewById(R.id.etUi)
+        var textTyped = uiEt.text.toString()
+
+        var uiTv: TextView = findViewById(R.id.tvUi)
+        uiTv.setText(textTyped)
+    }
+
 }
