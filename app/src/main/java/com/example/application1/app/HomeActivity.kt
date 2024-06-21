@@ -19,12 +19,14 @@ class HomeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     var TAG: String =HomeActivity::class.java.simpleName
 
     var data= arrayOf("india","english","android","computer")
+    var b=20
 
     lateinit var mySpinner: Spinner
     lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        var a=10
         enableEdgeToEdge()
         setContentView(R.layout.activity_home)
         mySpinner =  findViewById(R.id.spinner)
@@ -49,6 +51,7 @@ class HomeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         var item= parent?.selectedItem.toString()
         Log.i(TAG,item)
+        println(b)
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -56,11 +59,11 @@ class HomeActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
     fun getShowText(view: View) {
+        //get the text from et
         var uiEt:EditText = findViewById(R.id.etUi)
         var textTyped = uiEt.text.toString()
-
+        //show the text in the tv
         var uiTv: TextView = findViewById(R.id.tvUi)
         uiTv.setText(textTyped)
     }
-
 }

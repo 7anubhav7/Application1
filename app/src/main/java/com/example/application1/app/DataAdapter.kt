@@ -27,11 +27,11 @@ class DataAdapter(var data: Array<String>): RecyclerView.Adapter<DataAdapter.Dat
     }
 
 
-    class DataViewHolder(rowPlank: View) : RecyclerView.ViewHolder(rowPlank) {
+    class DataViewHolder(rowPlank:View):RecyclerView.ViewHolder(rowPlank) {
     init {
         Log.i("DataAdapter","prateek is trying to find the textview on the row")
     }
-        var tvRowItem = itemView.findViewById<TextView>(R.id.textView)
+        var tvRowItem = itemView.findViewById<TextView>(R.id.tvRow)
 
     }
 }
