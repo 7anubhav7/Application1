@@ -33,7 +33,9 @@ class HomeActivityTests {
             .perform(typeText("hello"), closeSoftKeyboard())
 
         onView(withId(R.id.btnUi)).perform(click())
-            .check(matches(withText("hello")));
+
+        onView(withId(R.id.tvUi))
+            .check(matches(withText("hello")))
     }
 
 }
