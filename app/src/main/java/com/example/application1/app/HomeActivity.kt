@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.application1.R
+import com.example.application1.app.network.MarsApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -34,6 +35,9 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun getMarsPhotos() {
-        GlobalScope.launch {}
+        GlobalScope.launch {
+            val listResult = MarsApi.retrofitService.getPhotos()
+            Log.i("HomeActivity", listResult)
+        }
     }
 }
