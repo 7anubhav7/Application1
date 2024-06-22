@@ -8,12 +8,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.application1.R
 import com.example.application1.app.network.MarsAdapter
 import com.example.application1.app.network.MarsApi
 import com.example.application1.app.network.MarsPhoto
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -54,9 +56,10 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun getMarsPhotos() {
-        GlobalScope.async {
-            var listMarsPhoto = MarsApi.retrofitService.getPhotos()
-            listMarsPhoto = listMarsPhotos
+        GlobalScope.launch (Dispatchers.Main) {
+
+            val listMarsPhoto = MarsApi.retrofitService.getPhotos()
+            marsAdapter.listMarsPhotos = listMarsPhoto
             marsAdapter.notifyItemRangeChanged(0,listMarsPhoto.size)
             Log.i("HomeActivity", listMarsPhoto.get(0).imgSrc)
         }
