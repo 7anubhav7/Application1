@@ -10,10 +10,24 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="51dp"
-        android:layout_height="28dp"
+        android:layout_height="0dp"
         android:layout_marginStart="160dp"
         android:layout_marginTop="191dp"
+        android:layout_marginBottom="58dp"
         android:text="Home"
+        app:layout_constraintBottom_toTopOf="@+id/btnGET"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnGET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="149dp"
+        android:layout_marginBottom="566dp"
+        android:text="get json"
+        android:onClick="getJson"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
