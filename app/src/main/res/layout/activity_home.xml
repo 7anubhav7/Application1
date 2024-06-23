@@ -10,10 +10,24 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="51dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="191dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginBottom="659dp"
         android:text="Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/btnInsert"
+        app:layout_constraintTop_toBottomOf="@+id/btnInsert" />
+
+    <Button
+        android:id="@+id/btnInsert"
+        android:onClick="insertDb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginBottom="57dp"
+        android:text="InsertDb"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
