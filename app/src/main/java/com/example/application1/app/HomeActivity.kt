@@ -14,15 +14,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_home)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-    var data= intent.extras?.getString("mykey")
-    Log.i("homeActivity", data.toString())
-    var homeTextView:TextView = findViewById(R.id.textView)
-    homeTextView.setText(data)
+
 
     }
 }
