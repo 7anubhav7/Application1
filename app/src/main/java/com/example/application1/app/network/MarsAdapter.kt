@@ -3,14 +3,17 @@ package com.example.application1.app.network
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.application1.R
 
 class MarsAdapter(var listMarsPhotos: List<MarsPhoto>) : RecyclerView.Adapter<MarsAdapter.MarsViewHolder>(){
 
     class MarsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         var textView:TextView = itemView.findViewById(R.id.tvRowitem)
+        var imageView:ImageView = itemView.findViewById(R.id.ivRow)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MarsViewHolder {
@@ -23,6 +26,8 @@ class MarsAdapter(var listMarsPhotos: List<MarsPhoto>) : RecyclerView.Adapter<Ma
     }
 
     override fun onBindViewHolder(holder: MarsViewHolder, position: Int) {
-        holder.textView.setText(listMarsPhotos.get(position).imgSrc)
+        var url = listMarsPhotos.get(position).imgSrc
+        holder.textView.setText(url)
+        holder.imageView.load(url)
     }
 }
