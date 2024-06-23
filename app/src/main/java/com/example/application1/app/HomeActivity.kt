@@ -3,6 +3,7 @@ package com.example.application1.app
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.application1.R
 import com.example.application1.app.network.MarsAdapter
 import com.example.application1.app.network.MarsApi
@@ -25,11 +27,13 @@ class HomeActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
     lateinit var listMarsPhotos:List<MarsPhoto>
     lateinit var marsAdapter: MarsAdapter
+    lateinit var imageView: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_home)
+        imageView = findViewById(R.id.imageView)
         recyclerView  = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         listMarsPhotos = ArrayList<MarsPhoto>()
@@ -60,6 +64,7 @@ class HomeActivity : AppCompatActivity() {
 
             val listMarsPhoto = MarsApi.retrofitService.getPhotos()
             marsAdapter.listMarsPhotos = listMarsPhoto
+            imageView.load(listMarsPhoto.get(0).imgSrc)
             marsAdapter.notifyItemRangeChanged(0,listMarsPhoto.size)
             Log.i("HomeActivity", listMarsPhoto.get(0).imgSrc)
         }
