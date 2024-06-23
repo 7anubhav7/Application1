@@ -1,24 +1,37 @@
 package com.example.application1.app
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.databinding.DataBindingUtil
 import com.example.application1.R
-import com.example.application1.databinding.ActivityHomeBinding
+import com.example.application1.app.database.Item
+import com.example.application1.app.database.ItemDao
+import com.example.application1.app.database.ItemRoomDatabase
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class HomeActivity : AppCompatActivity() {
 
+    lateinit var dao: ItemDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //enableEdgeToEdge()
+        // enableEdgeToEdge()
         setContentView(R.layout.activity_home)
+        var  database = ItemRoomDatabase.getDatabase(this)
+        dao = database.itemDao()
 
+    }
 
+    override fun onStart() {
+        super.onStart()
+    }
+
+    fun insertDb(view: View) {
+        GlobalScope.launch {
+            val item = Item(777,"fruits",111.0,22)
+            dao.insert(item)
+
+        }
     }
 }
