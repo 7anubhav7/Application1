@@ -28,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
         tvHome = findViewById(R.id.tvHome)
 
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
-        tvHome.setText(""+viewModel.count)
+        //tvHome.setText(""+viewModel.count)
         var database = ItemRoomDatabase.getDatabase(this)
         dao = database.itemDao()
 
@@ -44,8 +44,8 @@ class HomeActivity : AppCompatActivity() {
 
 
     fun incrementCount(view: View){
-        viewModel.incrementCount()
-        tvHome.setText(""+viewModel.count)
+        viewModel.startTimer()
+        tvHome.setText(""+viewModel._seconds)
     }
 
     fun findItemDb(view: View) {
