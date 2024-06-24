@@ -9,13 +9,15 @@
 
     <TextView
         android:id="@+id/tvHome"
-        android:layout_width="51dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="17dp"
+        android:layout_marginStart="153dp"
+        android:layout_marginEnd="82dp"
         android:layout_marginBottom="659dp"
         android:text="Home"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/btnInsert"
+        app:layout_constraintEnd_toStartOf="@+id/btnInc"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnInsert" />
 
     <Button
@@ -42,6 +44,18 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/btnInsert"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnInsert" />
+
+    <Button
+        android:id="@+id/btnInc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="34dp"
+        android:text="increment"
+        android:onClick="incrementCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvHome"
+        app:layout_constraintTop_toBottomOf="@+id/btnGET" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
