@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.application1.R
+import androidx.lifecycle.Observer
 import com.example.application1.app.database.Item
 import com.example.application1.app.database.ItemDao
 import com.example.application1.app.database.ItemRoomDatabase
@@ -28,6 +29,7 @@ class HomeActivity : AppCompatActivity() {
         tvHome = findViewById(R.id.tvHome)
 
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+        viewModel._seconds.observe(this, secsObserver)
         //tvHome.setText(""+viewModel.count)
         var database = ItemRoomDatabase.getDatabase(this)
         dao = database.itemDao()
@@ -42,17 +44,21 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-
-    fun incrementCount(view: View){
-        viewModel.startTimer()
-        tvHome.setText(""+viewModel._seconds)
-    }
-
     fun findItemDb(view: View) {
         GlobalScope.launch(Dispatchers.Main) {
             val item = dao.getItem(777).first()
             tvHome.setText(item.itemName)
         }
     }
-}
 
+    var secsObserver: Observer<Int> = object :Observer<Int>{
+        override fun onChanged(value: Int) {
+            tvHome.setText(value.toString())
+        }
+    }
+
+    fun incrementCount(view: View){
+        viewModel.startTimer()
+
+    }
+}
