@@ -1,6 +1,5 @@
 package com.example.application1.app.database
 
-import android.adservices.adid.AdId
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
